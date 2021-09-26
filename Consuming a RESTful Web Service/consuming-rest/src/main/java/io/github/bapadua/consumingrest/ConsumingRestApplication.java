@@ -30,12 +30,9 @@ public class ConsumingRestApplication {
     public CommandLineRunner run(RestTemplate restTemplate) {
         return args -> {
             try {
-                Object x = restTemplate.getForObject(
-                        "https://quoters.apps.pcfone.io/api/random", Quote.class);
-
                 Quote quote = restTemplate.getForObject(
                         "https://quoters.apps.pcfone.io/api/random", Quote.class);
-            log.info(Objects.requireNonNull(quote).toString());
+                log.info(Objects.requireNonNull(quote).toString());
             } catch (Exception ex) {
                 log.info(ex.getMessage());
             }
